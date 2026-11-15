@@ -2,14 +2,51 @@
 
 Arma equipos parejos para tu pichanga desde el borde de la losa, en un minuto.
 
-Sin instalación, sin cuenta, sin internet. Es HTML, CSS y JavaScript a secas:
-no hay compilación ni dependencias que bajar.
+**→ https://dbcuentas01-sketch.github.io/pichanga/**
+
+Sin cuenta, sin tienda de apps, sin internet una vez instalada. Es HTML, CSS y
+JavaScript a secas: no hay compilación ni dependencias que bajar.
 
 ---
 
-## Cómo ejecutarla
+## Instalarla en el celular
 
-**La forma rápida:** abre `index.html` con doble clic. Funciona tal cual.
+Se instala desde el navegador. Cada persona escanea el QR, se le abre la app y
+confirma la instalación en su propio teléfono.
+
+| | |
+|---|---|
+| **QR en PNG** | [`qr/pichanga-qr.png`](qr/pichanga-qr.png) — 1024 px |
+| **QR en SVG** | [`qr/pichanga-qr.svg`](qr/pichanga-qr.svg) — vectorial, escala a cualquier tamaño |
+| **Afiche para imprimir** | [`qr/pichanga-afiche.png`](qr/pichanga-afiche.png) — A5 a 300 ppp · también en [SVG](qr/pichanga-afiche.svg) |
+
+El afiche lleva el ícono de Pichanga, el QR y el texto «Escanea para instalar».
+
+**En Android, con Chrome:** aparece una franja con el botón *Instalar*. Si no
+sale, menú **⋮** → *Instalar aplicación*.
+
+**En iPhone, con Safari:** botón **Compartir** → *Añadir a pantalla de inicio*.
+Tiene que ser Safari: desde Chrome de iPhone, iOS no deja instalar.
+
+La app explica las dos rutas por dentro, en **¿Cómo instalar Pichanga?** al pie.
+
+### Regenerar el QR si cambia la dirección
+
+```bash
+npm install
+PICHANGA_URL=https://tu.direccion/ npm run assets
+npm run verificar-qr
+```
+
+`verificar-qr` **decodifica** los archivos generados, como lo haría un celular,
+y falla si no apuntan a donde deben. Generar un QR y mirarlo no prueba nada.
+
+---
+
+## Cómo ejecutarla en tu máquina
+
+**La forma rápida:** abre `index.html` con doble clic. Funciona tal cual, pero
+sin service worker: desde `file://` los navegadores no lo permiten.
 
 **La forma recomendada**, para que el botón de copiar funcione en todos los
 navegadores (algunos bloquean el portapapeles en `file://`):
@@ -121,13 +158,33 @@ Cada reparto tarda entre 7 y 34 ms.
 
 ---
 
+## Funciona sin internet
+
+Después de la primera carga, un service worker guarda la app entera en el
+teléfono: la página, los estilos, el reparto y los íconos. En una losa de
+barrio no siempre hay señal, y el organizador no puede quedarse mirando una
+pantalla en blanco con doce personas esperando.
+
+El reparto nunca necesitó red: todo el cálculo pasa dentro del teléfono. La
+lista de jugadores se guarda en el aparato, no en ningún servidor.
+
+Para publicar una versión nueva hay que subir `VERSION` en `sw.js`. Si no, los
+teléfonos que ya la tienen seguirán sirviendo la copia vieja.
+
+---
+
 ## Archivos
 
 ```
 index.html              la página, con la ilustración de la losa en SVG
 css/estilos.css         estilos, primero para celular
 js/reparto.js           el reparto equilibrado (sin nada del navegador dentro)
-js/app.js               la interfaz
+js/app.js               la interfaz, la instalación y el registro del servicio
+sw.js                   el service worker: la app sin conexión
+manifest.webmanifest    nombre, íconos y modo de apertura
+icons/                  el ícono en SVG y sus versiones en PNG
+qr/                     el QR y el afiche para imprimir
+tools/                  genera y verifica los assets de arriba
 test/probar_reparto.js  las pruebas
 ```
 
