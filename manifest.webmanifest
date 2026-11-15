@@ -1,0 +1,36 @@
+{
+  "name": "Pichanga — equipos parejos",
+  "short_name": "Pichanga",
+  "description": "Arma equipos parejos para tu pichanga desde el borde de la losa, en un minuto. Funciona sin internet.",
+  "lang": "es-PE",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#EFE9E0",
+  "theme_color": "#1D2B4A",
+  "categories": ["sports", "utilities", "lifestyle"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

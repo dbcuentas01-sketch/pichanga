@@ -1,0 +1,18 @@
+{
+  "name": "pichanga",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Arma equipos parejos para tu pichanga. App web instalable que funciona sin internet.",
+  "license": "MIT",
+  "scripts": {
+    "start": "python -m http.server 5173",
+    "test": "node test/probar_reparto.js",
+    "assets": "node tools/generar_assets.js",
+    "verificar-qr": "node tools/verificar_qr.js"
+  },
+  "devDependencies": {
+    "jsqr": "^1.4.0",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.5"
+  }
+}

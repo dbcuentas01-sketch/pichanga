@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1D2B4A">
+<meta name="description" content="Arma equipos parejos para tu pichanga en un minuto, desde el borde de la cancha.">
+<title>Pichanga — equipos parejos en un minuto</title>
+<link rel="stylesheet" href="css/estilos.css">
+
+<!-- Instalable en la pantalla de inicio -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/svg+xml" href="icons/icono.svg">
+<!-- iPhone no lee el manifiesto: necesita su propio ícono y sus metas -->
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Pichanga">
+<meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+
+<!-- ==================== PORTADA ==================== -->
+<header class="portada">
+  <!-- Ilustración original: una losa de barrio al atardecer.
+       Cerro con casitas, reja de malla, cemento pintado y el arco al fondo. -->
+  <svg class="portada__arte" viewBox="0 0 400 230" role="img"
+       aria-label="Ilustración de una losa deportiva de barrio al atardecer, con el cerro y sus casas al fondo">
+    <defs>
+      <linearGradient id="cielo" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0"    stop-color="#1D2B4A"/>
+        <stop offset="0.32" stop-color="#584173"/>
+        <stop offset="0.58" stop-color="#C85F5C"/>
+        <stop offset="0.80" stop-color="#E88B52"/>
+        <stop offset="1"    stop-color="#F5C277"/>
+      </linearGradient>
+      <radialGradient id="resplandor" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0"   stop-color="#FFE7B0" stop-opacity="0.85"/>
+        <stop offset="0.55" stop-color="#FFC878" stop-opacity="0.32"/>
+        <stop offset="1"   stop-color="#FFB45E" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="cemento" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0"    stop-color="#A9A294"/>
+        <stop offset="0.35" stop-color="#9C9486"/>
+        <stop offset="1"    stop-color="#7E7667"/>
+      </linearGradient>
+      <linearGradient id="luz" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FFF3CE" stop-opacity="0.55"/>
+        <stop offset="1" stop-color="#FFF3CE" stop-opacity="0"/>
+      </linearGradient>
+      <pattern id="malla" width="11" height="11" patternUnits="userSpaceOnUse">
+        <path d="M0,5.5 L5.5,0 L11,5.5 L5.5,11 Z" fill="none" stroke="#CBD6E0"
+              stroke-width="0.9" opacity="0.42"/>
+      </pattern>
+    </defs>
+
+    <!-- Cielo y sol -->
+    <rect x="0" y="0" width="400" height="140" fill="url(#cielo)"/>
+    <circle cx="298" cy="88" r="62" fill="url(#resplandor)"/>
+    <circle cx="298" cy="88" r="17" fill="#FFE2A3"/>
+    <!-- Nubes largas y delgadas, de atardecer -->
+    <g fill="#F3B189" opacity="0.5">
+      <ellipse cx="120" cy="46" rx="54" ry="4"/>
+      <ellipse cx="238" cy="34" rx="38" ry="3"/>
+      <ellipse cx="78"  cy="64" rx="34" ry="3"/>
+      <ellipse cx="320" cy="56" rx="44" ry="3.5"/>
+    </g>
+
+    <!-- Cerro lejano -->
+    <path d="M0,120 L0,88 Q40,66 78,80 Q116,94 150,72 Q188,50 232,70 Q272,90 310,74 Q350,58 400,80 L400,120 Z"
+          fill="#3E4A72" opacity="0.85"/>
+    <!-- Cerro cercano, el de las casas -->
+    <path d="M0,124 L0,106 Q46,93 92,105 Q140,117 186,101 Q232,86 282,103 Q330,118 400,103 L400,124 Z"
+          fill="#4C3E59"/>
+
+    <!-- Casitas del cerro.
+         Cada una se apoya en la ladera: la Y sale de evaluar la curva del
+         cerro cercano en esa X, para que ninguna quede flotando. -->
+    <g>
+      <g fill="#C96F4A"><rect x="8"   y="93"  width="13" height="11"/></g>
+      <g fill="#D8A05A"><rect x="34"  y="89"  width="12" height="11"/></g>
+      <g fill="#8FA8B5"><rect x="60"  y="91"  width="13" height="11"/></g>
+      <g fill="#C4553F"><rect x="90"  y="96"  width="12" height="11"/></g>
+      <g fill="#D8A05A"><rect x="120" y="99"  width="13" height="11"/></g>
+      <g fill="#A8705E"><rect x="146" y="98"  width="12" height="11"/></g>
+      <g fill="#8FA8B5"><rect x="180" y="91"  width="13" height="11"/></g>
+      <g fill="#C96F4A"><rect x="208" y="85"  width="12" height="11"/></g>
+      <g fill="#D8A05A"><rect x="238" y="85"  width="13" height="11"/></g>
+      <g fill="#C4553F"><rect x="266" y="90"  width="12" height="11"/></g>
+      <g fill="#8FA8B5"><rect x="294" y="97"  width="13" height="11"/></g>
+      <g fill="#A8705E"><rect x="324" y="100" width="12" height="11"/></g>
+      <g fill="#D8A05A"><rect x="356" y="99"  width="13" height="11"/></g>
+      <!-- Ventanitas encendidas -->
+      <g fill="#FFD98A" opacity="0.92">
+        <rect x="11"  y="96"  width="3.4" height="3.4"/>
+        <rect x="37"  y="92"  width="3.4" height="3.4"/>
+        <rect x="63"  y="94"  width="3.4" height="3.4"/>
+        <rect x="93"  y="99"  width="3.4" height="3.4"/>
+        <rect x="123" y="102" width="3.4" height="3.4"/>
+        <rect x="149" y="101" width="3.4" height="3.4"/>
+        <rect x="183" y="94"  width="3.4" height="3.4"/>
+        <rect x="211" y="88"  width="3.4" height="3.4"/>
+        <rect x="241" y="88"  width="3.4" height="3.4"/>
+        <rect x="269" y="93"  width="3.4" height="3.4"/>
+        <rect x="297" y="100" width="3.4" height="3.4"/>
+        <rect x="327" y="103" width="3.4" height="3.4"/>
+        <rect x="359" y="102" width="3.4" height="3.4"/>
+      </g>
+    </g>
+
+    <!-- Reja de malla: va delante del cerro y se detiene justo donde
+         empieza el cemento, para no invadir la cancha. -->
+    <rect x="0" y="107" width="400" height="23" fill="url(#malla)"/>
+    <rect x="0" y="107" width="400" height="2.2" fill="#2F3A4C" opacity="0.62"/>
+    <g fill="#2F3A4C" opacity="0.5">
+      <rect x="22"  y="105" width="2.6" height="26"/>
+      <rect x="102" y="105" width="2.6" height="26"/>
+      <rect x="182" y="105" width="2.6" height="26"/>
+      <rect x="262" y="105" width="2.6" height="26"/>
+      <rect x="342" y="105" width="2.6" height="26"/>
+    </g>
+    <!-- Borde de la losa: separa el cemento del fondo -->
+    <rect x="0" y="128" width="400" height="2" fill="#5F584B" opacity="0.5"/>
+
+    <!-- La losa -->
+    <polygon points="112,128 288,128 408,230 -8,230" fill="url(#cemento)"/>
+    <!-- Manchas y grietas del cemento -->
+    <g opacity="0.14" fill="#4A4438">
+      <ellipse cx="150" cy="196" rx="44" ry="11"/>
+      <ellipse cx="282" cy="168" rx="30" ry="8"/>
+      <ellipse cx="72"  cy="222" rx="38" ry="9"/>
+    </g>
+    <g stroke="#6A6354" stroke-width="0.8" opacity="0.4" fill="none">
+      <path d="M126,142 L142,168 L132,196 L148,228"/>
+      <path d="M300,152 L322,186 L312,214"/>
+    </g>
+
+    <!-- Pintura de la cancha -->
+    <g stroke="#F2EDE2" fill="none" opacity="0.72">
+      <path d="M122,134 L278,134 L388,224 L12,224 Z" stroke-width="2"/>
+      <path d="M56,176 L344,176" stroke-width="2.2"/>
+      <ellipse cx="200" cy="176" rx="46" ry="14" stroke-width="2.2"/>
+      <path d="M164,134 L236,134 L248,153 L152,153 Z" stroke-width="1.7"/>
+      <path d="M178,134 L222,134 L227,143 L173,143 Z" stroke-width="1.5"/>
+    </g>
+    <ellipse cx="200" cy="176" rx="2.6" ry="1.1" fill="#F2EDE2" opacity="0.8"/>
+
+    <!-- Arco del fondo -->
+    <g>
+      <g stroke="#EFE6D4" stroke-width="0.7" opacity="0.38" fill="none">
+        <path d="M171,112 L171,128 M179,112 L179,128 M187,112 L187,128 M195,112 L195,128
+                 M203,112 L203,128 M211,112 L211,128 M219,112 L219,128 M227,112 L227,128"/>
+        <path d="M168,116 L232,116 M168,121 L232,121 M168,126 L232,126"/>
+      </g>
+      <path d="M167,128 L167,110 L233,110 L233,128" fill="none" stroke="#F7F3EA"
+            stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Poste de luz -->
+    <polygon points="30,74 104,230 -44,230" fill="url(#luz)"/>
+    <rect x="28" y="72" width="4.5" height="158" fill="#2A3346"/>
+    <path d="M22,72 L39,72 L36,64 L25,64 Z" fill="#39455C"/>
+    <ellipse cx="30.5" cy="72" rx="8" ry="2.6" fill="#FFE9A8"/>
+    <circle cx="30.5" cy="70" r="12" fill="#FFE9A8" opacity="0.22"/>
+
+    <!-- Dos siluetas, para dar escala -->
+    <g stroke="#232A3C" stroke-width="2.6" stroke-linecap="round" fill="none">
+      <circle cx="150" cy="141" r="3" fill="#232A3C" stroke="none"/>
+      <path d="M150,145 L150,155"/>
+      <path d="M150,155 L145,165"/>
+      <path d="M150,155 L155,164"/>
+      <path d="M150,148 L143,152"/>
+      <path d="M150,148 L157,151"/>
+    </g>
+    <g stroke="#232A3C" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.92">
+      <circle cx="258" cy="147" r="2.6" fill="#232A3C" stroke="none"/>
+      <path d="M258,151 L258,160"/>
+      <path d="M258,160 L254,169"/>
+      <path d="M258,160 L263,168"/>
+      <path d="M258,153 L252,157"/>
+      <path d="M258,153 L264,155"/>
+    </g>
+
+    <!-- La pelota -->
+    <ellipse cx="312" cy="214" rx="11" ry="3" fill="#2A2520" opacity="0.22"/>
+    <circle cx="312" cy="206" r="9.5" fill="#FBF7EF" stroke="#2A2520" stroke-width="1.2"/>
+    <path d="M312,200.5 L316.5,203.8 L314.8,209 L309.2,209 L307.5,203.8 Z" fill="#2A2520"/>
+    <g stroke="#2A2520" stroke-width="1" fill="none">
+      <path d="M312,200.5 L312,197"/>
+      <path d="M316.5,203.8 L320.4,202.2"/>
+      <path d="M314.8,209 L317,212.6"/>
+      <path d="M309.2,209 L307,212.6"/>
+      <path d="M307.5,203.8 L303.6,202.2"/>
+    </g>
+  </svg>
+
+  <div class="portada__titulo">
+    <h1 class="marca">Pichanga</h1>
+    <span class="marca__cola">equipos parejos</span>
+  </div>
+
+</header>
+
+<!-- Franja de instalación. Aparece solo si la app no está instalada todavía,
+     y se puede descartar: no vuelve a estorbar en esta sesión. -->
+<div class="franja-instalar" id="franjaInstalar" hidden>
+  <div class="envoltura franja-instalar__caja">
+    <span class="franja-instalar__icono" aria-hidden="true">📲</span>
+    <span class="franja-instalar__texto">
+      <strong>Tenla a mano.</strong> Se instala en tu pantalla de inicio y
+      funciona sin internet.
+    </span>
+    <button class="boton boton--principal boton--chico" id="btnInstalar">Instalar</button>
+    <button class="icono-btn franja-instalar__cerrar" id="cerrarFranja"
+            aria-label="Ahora no">✕</button>
+  </div>
+</div>
+
+<!-- ==================== PASOS ==================== -->
+<nav class="pasos" aria-label="Pasos">
+  <div class="envoltura">
+    <div class="pasos__lista" role="tablist">
+      <button class="paso" role="tab" id="paso-1" aria-selected="true"
+              aria-controls="seccion-jugadores" data-paso="jugadores">
+        <span class="paso__num">1</span><span>Jugadores</span>
+      </button>
+      <button class="paso" role="tab" id="paso-2" aria-selected="false"
+              aria-controls="seccion-formato" data-paso="formato">
+        <span class="paso__num">2</span><span>Formato</span>
+      </button>
+      <button class="paso" role="tab" id="paso-3" aria-selected="false"
+              aria-controls="seccion-reparto" data-paso="reparto">
+        <span class="paso__num">3</span><span>Equipos</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="envoltura">
+
+  <!-- ==================== 1. JUGADORES ==================== -->
+  <section class="seccion" id="seccion-jugadores" role="tabpanel" aria-labelledby="paso-1">
+    <h2 class="titulo-seccion">¿Quiénes juegan hoy?</h2>
+    <p class="ayuda">Escribe el nombre y toca el nivel. Se agrega solo y el campo
+      queda listo para el siguiente.</p>
+
+    <div class="tarjeta">
+      <label class="rotulo" for="nombre">Nombre</label>
+      <input class="campo-nombre" id="nombre" type="text" autocomplete="off"
+             autocapitalize="words" placeholder="Ej: Lucho" maxlength="24"
+             enterkeyhint="done">
+      <div class="niveles" role="group" aria-label="Agregar con nivel">
+        <button class="nivel nivel--1" data-nivel="principiante">
+          Principiante<span class="nivel__puntos">1 punto</span>
+        </button>
+        <button class="nivel nivel--2" data-nivel="intermedio">
+          Intermedio<span class="nivel__puntos">2 puntos</span>
+        </button>
+        <button class="nivel nivel--3" data-nivel="avanzado">
+          Avanzado<span class="nivel__puntos">3 puntos</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="contador">
+      <span class="contador__n" id="contadorN">0 jugadores</span>
+      <span class="contador__detalle" id="contadorDetalle"></span>
+    </div>
+
+    <ul class="lista lista--dos" id="listaJugadores"></ul>
+
+    <div class="vacio" id="vacioJugadores">
+      <span class="vacio__icono" aria-hidden="true">👟</span>
+      <span class="vacio__texto">Todavía no hay nadie.<br>Empieza por el primero.</span>
+    </div>
+
+    <div id="zonaBorrar" hidden style="margin:18px 0 6px">
+      <button class="boton boton--peligro boton--chico boton--ancho" id="btnBorrarTodo">
+        Vaciar la lista
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================== 2. FORMATO ==================== -->
+  <section class="seccion" id="seccion-formato" role="tabpanel" aria-labelledby="paso-2" hidden>
+    <h2 class="titulo-seccion">¿Cómo jugamos?</h2>
+    <p class="ayuda" id="ayudaFormato">Elige el formato. Te digo cuántos quedan rotando.</p>
+    <div class="formatos" id="formatos"></div>
+    <div id="avisoFormato"></div>
+  </section>
+
+  <!-- ==================== 3. REPARTO ==================== -->
+  <section class="seccion" id="seccion-reparto" role="tabpanel" aria-labelledby="paso-3" hidden>
+    <h2 class="titulo-seccion">Los equipos</h2>
+    <p class="ayuda" id="ayudaReparto"></p>
+
+    <div class="alternador" id="alternador" role="group" aria-label="Propuestas">
+      <button class="alternador__btn" data-propuesta="0" aria-pressed="true">Propuesta A</button>
+      <button class="alternador__btn" data-propuesta="1" aria-pressed="false">Propuesta B</button>
+    </div>
+
+    <div id="avisoEquilibrio"></div>
+    <div class="pista-intercambio" id="pistaIntercambio">
+      ¿No te convence alguien? Tócalo y luego toca a otro para cambiarlos de sitio.
+    </div>
+
+    <div id="equipos" class="equipos-rejilla"></div>
+    <div id="rotacion"></div>
+
+    <div class="fila-botones" style="margin:16px 0 8px">
+      <button class="boton boton--borde" id="btnMezclar">🔀 Mezclar</button>
+      <button class="boton boton--borde" id="btnModoPublico">🙈 Ocultar</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== BARRA DE ACCIÓN ==================== -->
+<div class="barra-accion">
+  <div class="envoltura" id="barraAccion"></div>
+</div>
+
+<div class="aviso-flotante" id="avisoFlotante" role="status" aria-live="polite"></div>
+
+<!-- ==================== CÓMO INSTALAR ==================== -->
+<dialog class="hoja" id="hojaInstalar" aria-labelledby="tituloInstalar">
+  <div class="hoja__caja">
+    <div class="hoja__cabecera">
+      <h2 class="hoja__titulo" id="tituloInstalar">Tener Pichanga a mano</h2>
+      <button class="icono-btn" id="cerrarHoja" aria-label="Cerrar">✕</button>
+    </div>
+
+    <p class="hoja__intro">
+      Se instala desde el navegador, en unos segundos. No hace falta cuenta
+      ni pasar por ninguna tienda de aplicaciones. Una vez instalada,
+      <strong>funciona sin internet</strong>.
+    </p>
+
+    <section class="guia" id="guiaAndroid">
+      <h3 class="guia__titulo"><span aria-hidden="true">🤖</span> En Android, con Chrome</h3>
+      <ol class="guia__pasos">
+        <li>Toca el botón <strong>Instalar</strong> de arriba. Si no aparece,
+          abre el menú <strong>⋮</strong> de Chrome, arriba a la derecha.</li>
+        <li>Elige <strong>Instalar aplicación</strong>
+          (en algunas versiones dice <em>Añadir a pantalla principal</em>).</li>
+        <li>Confirma tocando <strong>Instalar</strong>.</li>
+      </ol>
+      <p class="guia__final">Queda como una app más, con su ícono propio y sin
+        barra de navegador.</p>
+    </section>
+
+    <section class="guia" id="guiaIphone">
+      <h3 class="guia__titulo"><span aria-hidden="true">🍎</span> En iPhone, con Safari</h3>
+      <ol class="guia__pasos">
+        <li>Abre esta página en <strong>Safari</strong>. Desde Chrome u otro
+          navegador de iPhone no se puede instalar.</li>
+        <li>Toca el botón <strong>Compartir</strong>
+          <svg class="icono-compartir" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3 L12 15" />
+            <path d="M8 7 L12 3 L16 7" />
+            <path d="M6 11 L4 11 L4 21 L20 21 L20 11 L18 11" />
+          </svg>
+          —el cuadrito con la flecha hacia arriba, abajo en el centro de la
+          pantalla—.</li>
+        <li>Baja en la lista y elige
+          <strong>Añadir a pantalla de inicio</strong>.</li>
+        <li>Toca <strong>Añadir</strong>, arriba a la derecha.</li>
+      </ol>
+      <p class="guia__final">El ícono de Pichanga queda en tu pantalla de inicio.</p>
+    </section>
+
+    <button class="boton boton--principal boton--ancho" id="entendidoHoja">Entendido</button>
+  </div>
+</dialog>
+
+<footer class="pie">
+  <div class="envoltura">
+    <button class="enlace" id="abrirComoInstalar">¿Cómo instalar Pichanga?</button>
+    <span class="pie__nota" id="estadoConexion"></span>
+  </div>
+</footer>
+
+<script src="js/reparto.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

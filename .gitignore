@@ -1,0 +1,10 @@
+# Dependencias: solo hacen falta para regenerar íconos y QR,
+# y esos archivos ya van versionados.
+node_modules/
+package-lock.json
+
+# Ruido del sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+*.log
